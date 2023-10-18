@@ -44,6 +44,7 @@ const handleSubmit = async (e) => {
 // console.log(process.env.REACT_APP_API);
   return (
     <Layout title="Register">
+
       <div className="register">
         <h1>Register </h1>
 
@@ -54,7 +55,7 @@ const handleSubmit = async (e) => {
               value={name}
               onChange={(e)=>setName(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputname"
               placeholder="Enter Your Name"
               required
             />
@@ -65,7 +66,7 @@ const handleSubmit = async (e) => {
               value={email}
               onChange={(e)=>setEmail(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputEmail"
               placeholder="Enter Your email"
               required
             />
@@ -89,7 +90,7 @@ const handleSubmit = async (e) => {
               value={phone}
               onChange={(e)=>setPhone(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputText"
               placeholder="Enter Your phone"
               required
             />
@@ -101,7 +102,7 @@ const handleSubmit = async (e) => {
               value={address}
               onChange={(e)=>setAddress(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputAddress"
               placeholder="Enter Your  Address"
               required
             />
@@ -112,6 +113,10 @@ const handleSubmit = async (e) => {
           </div>
         </form>
       </div>
+
+
+
+
     </Layout>
   );
 };
