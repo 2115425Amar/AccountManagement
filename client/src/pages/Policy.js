@@ -3,13 +3,14 @@ import Layout from '../components/Layout/Layout'
 const Policy = () => {
   return (
     <Layout>
+
     <div className="contact-container">
       {/* Half page with a big image */}
       <div className="contact-image"></div>
 
       {/* Half page with contact information */}
       <div className="contact-info">
-        <h1>Contact Us</h1>
+        <h1>Privacy Policy</h1>
         <hr className="divider" />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum vel ipsa asperiores dolorum nesciunt vitae, cumque ut suscipit maiores in facilis, voluptatibus distinctio odit.</p>
         <div className="contact-items-container">
@@ -28,6 +29,7 @@ const Policy = () => {
         </div>
       </div>
     </div>
+    
   </Layout>
   )
 }

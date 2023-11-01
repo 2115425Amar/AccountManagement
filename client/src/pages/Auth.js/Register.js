@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
-//import  { Toaster } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,45 +9,50 @@ const Register = () => {
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const [phone,setPhone]=useState("");
+  const [answer,setAnswer]=useState("");
   const [address,setAddress]=useState("");
+
 
   const navigate = useNavigate();
 
 // Form function
 const handleSubmit = async (e) => {
   e.preventDefault();
-  console.log (name, email, password, phone, address );
+  console.log (name, email, password, phone, address, answer );
 
   try {
     // Construct the API endpoint URL
    // console.log(`${process.env.REACT_APP_API}/api/v1/auth/Register`);
 
     // Make the POST request
-    const res = await axios.post('/api/v1/auth/Register', 
-    { name, email, password, phone, address });
-
+    const res = await axios.post('/api/v1/auth/Register', { name, email, password, phone, address ,answer});
     // Check the response and show appropriate toast messages
     if (res && res.data.success) {
       toast.success(res.data.message);
       // Redirect to the login page after successful registration
       navigate('/login');
-    } else {
+    } 
+    else {
       toast.error(res.data.message);
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error during registration:', error);
     // Handle error and show an appropriate toast message
     toast.error('An error occurred during registration.');
   }
 };
+
+
 // console.log(process.env.REACT_APP_API);
   return (
     <Layout title="Register">
-
       <div className="register">
-        <h1>Register </h1>
+
+      <h1>Register </h1>
 
         <form onSubmit={handleSubmit}>
+       
           <div className="mb-3">
             <input
               type="text"
@@ -107,15 +111,24 @@ const handleSubmit = async (e) => {
               required
             />
           </div>
-          
+
+          <div className="mb-3">
+            <input
+              type="text"
+              value={answer}
+              onChange={(e)=>setAnswer(e.target.value)}
+              className="form-control"
+              id="exampleInputanswer"
+              placeholder="Your Best Friend Name?"
+              required
+            />
+          </div>
+
           <div className="d-grid gap-2">
             <button className="btn btn-secondary bg-primary" type="submit">Submit</button>
           </div>
         </form>
       </div>
-
-
-
 
     </Layout>
   );

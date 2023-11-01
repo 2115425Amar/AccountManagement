@@ -1,13 +1,15 @@
 import {useState,useEffect,useContext,createContext} from 'react';
+import axios from 'axios';
 const AuthContext = createContext();
-const useAuth = () =>useContext(AuthContext);
-
+const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children})=>{
-    const [auth , setAuth]=useState({
+    const [auth , setAuth] = useState({
         user:null,
         token:" "
     });
+
+axios.defaults.headers.common['Authorization']=auth?.token;
     useEffect(()=>{
         const data = localStorage.getItem("auth");
         if(data){
@@ -20,16 +22,13 @@ const AuthProvider = ({children})=>{
         }
         //eslint-disable-next-line
     },[]);
+
     return(
         <AuthContext.Provider value ={[auth,setAuth]}>
         {children}
         </AuthContext.Provider>
     )
-    
 }
 
-
 //custom Hook
-
-
 export {useAuth,AuthProvider}

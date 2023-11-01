@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout'; // Import your Layout componen
 const Contact = () => {
   return (
     <Layout>
+    
       <div className="contact-container">
         {/* Half page with a big image */}
         <div className="contact-image"></div>
@@ -30,6 +31,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
     </Layout>
   );
 };

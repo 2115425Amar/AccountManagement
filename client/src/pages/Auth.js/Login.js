@@ -1,17 +1,15 @@
 import React,{useState} from "react";
 import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import {useNavigate , useLocation} from 'react-router-dom';
 import axios from "axios";
 import {useAuth} from "../../context/auth"
-
-
 
 const Login = () => {
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [auth,setAuth] = useAuth();
 
 // Form function
@@ -47,7 +45,7 @@ const handleSubmit = async (e) => {
         token:res.data.token,
       });
       localStorage.setItem('auth',JSON.stringify(res.data));
-      navigate('/');
+      navigate(location.state || "/");
     } else {
       toast.error(res.data.message);
     }
@@ -94,6 +92,9 @@ const handleSubmit = async (e) => {
           </div>
 
           <div className="d-grid gap-2">
+          <button className="btn btn-secondary bg-primary"type="button" onClick={()=>{navigate('/forgot-password')}}>
+            Forgot Password
+          </button>
             <button className="btn btn-secondary bg-primary" type="submit">Login</button>
           </div>
         </form>
