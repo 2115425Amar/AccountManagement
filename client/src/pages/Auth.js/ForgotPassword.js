@@ -45,11 +45,10 @@ const ForgotPassword = () => {
     }
     return (
         <Layout title="Reset-Password">
-            <div className="register">
-                <h1>Login</h1>
+             <div className="register">
+                <h1>Reset Password</h1>
 
                 <form onSubmit={handleSubmit}>
-
                     <div className="mb-3">
                         <input
                             type="email"
@@ -90,7 +89,7 @@ const ForgotPassword = () => {
                         <button className="btn btn-secondary bg-primary" type="submit">Reset</button>
                     </div>
                 </form>
-            </div>
+            </div> 
 
 
         </Layout>

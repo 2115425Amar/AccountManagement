@@ -6,7 +6,8 @@ const Policy = () => {
 
     <div className="contact-container">
       {/* Half page with a big image */}
-      <div className="contact-image"></div>
+      <div className="contact-image">
+      </div>
 
       {/* Half page with contact information */}
       <div className="contact-info">
