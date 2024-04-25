@@ -1,5 +1,5 @@
 import userModel from "../models/userModel.js";
-import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
+import { comparePassword, hashPassword } from "./../helpers/authHelper.js"; 
 import JWT from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
@@ -27,7 +27,7 @@ export const registerController = async (req, res) => {
 
     //check user
     const exisitingUser = await userModel.findOne({ email });
-    //exisiting user
+    // exisiting user
     if (exisitingUser) {
       return res.status(200).send({
         success: false,
@@ -38,14 +38,7 @@ export const registerController = async (req, res) => {
     //register user
     const hashedPassword = await hashPassword(password);
     //save
-    const user = await new userModel({
-      name,
-      email,
-      phone,
-      address,
-      password: hashedPassword,
-      answer,
-    }).save();
+    const user = await new userModel({name, email, phone,address,password: hashedPassword,answer,}).save();
 
     res.status(201).send({
       success: true,
@@ -62,8 +55,6 @@ export const registerController = async (req, res) => {
   }
 };
 
-
-
 //POST LOGIN
 export const loginController = async (req, res) => {
   try {
@@ -75,6 +66,7 @@ export const loginController = async (req, res) => {
         message: "Invalid email or password",
       });
     }
+    
     const user = await userModel.findOne({ email });
 
     if (!user) {
@@ -105,6 +97,7 @@ export const loginController = async (req, res) => {
         email: user.email,
         phone: user.phone,
         adddress: user.address,
+        role:user.role,
       },
       token,
     });
@@ -117,8 +110,6 @@ export const loginController = async (req, res) => {
     });
   }
 };
-
-
 
 
 //forgot password
@@ -150,15 +141,6 @@ export const forgotPasswordController=async(req,res)=>{
    message:"Password Reset Successfully",
  })
 
-  // const match = await comparePassword(password, user.passwordassword);
-  // if (!match) {
-  //   return res.status(200).send({
-  //     success: false,
-  //     message: "Invalid Password",
-  //   });
-  // }
-
- 
   } 
   catch (error) {
     console.log(error);

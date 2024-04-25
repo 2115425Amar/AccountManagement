@@ -3,7 +3,9 @@ import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from "axios";
-import { useAuth } from "../../context/auth"
+import { useAuth } from "../../context/auth";
+import { NavLink} from "react-router-dom";
+import { CiFaceSmile } from "react-icons/ci";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -101,12 +103,7 @@ const Login = () => {
 
       </div> */}
 
-
-
-
-
-
-      <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+      <section className="vh-100" style={{     backgroundColor: "rgb(238, 238, 238)" }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col col-xl-10">
@@ -115,11 +112,11 @@ const Login = () => {
                   <div className="col-md-6 col-lg-5 d-none d-md-block">
                     <img
                       //src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                      // src="https://images.pexels.com/photos/4464484/pexels-photo-4464484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                      src="https://images.pexels.com/photos/6956800/pexels-photo-6956800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                       src="https://images.pexels.com/photos/4464484/pexels-photo-4464484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                     // src="https://images.pexels.com/photos/6956800/pexels-photo-6956800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                     //src="https://images.pexels.com/photos/7620697/pexels-photo-7620697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                       alt="login form"
                       className="img-fluid"
-
                       style={{ borderRadius: "1rem 0 0 1rem" }}
                     />
 
@@ -129,11 +126,8 @@ const Login = () => {
 
                       <form onSubmit={handleSubmit}>
                         <div className="d-flex align-items-center mb-3 pb-1">
-                          <i
-                            className="fas fa-cubes fa-2x me-3"
-                            style={{ color: "#ff6219" }}
-                          />
-                          <span className="h1 fw-bold mb-0">LOGO</span>
+                          <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }}/>
+                          <span className="h1 fw-bold mb-0"> <CiFaceSmile/></span>
                         </div>
                         <h5
                           className="fw-normal mb-3 pb-3"
@@ -152,8 +146,7 @@ const Login = () => {
                             required
 
                           />
-                          <label className="form-label">
-                          </label>
+                         
                         </div>
 
                         <div className="form-outline mb-4">
@@ -166,12 +159,11 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                           />
-                          <label className="form-label">
-                          </label>
+                         
 
                         </div>
 
-                        <div className="pt-1 mb-4">
+                        <div className="pt-1 mb-4 ">
                           <button className="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
 
@@ -181,10 +173,11 @@ const Login = () => {
 
                         <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                           Don't have an account?{" "}
-                          <a href="#!" style={{ color: "#393f81" }}>Register here</a>
+                          <NavLink to="/register" style={{ color: "#393f81" }} >Register</NavLink>
+                          {/* <a href="#!" style={{ color: "#393f81" }}>Register here</a> */}
                         </p>
                         <a href="#!" className="small text-muted">Terms of use.</a>
-                        <a href="#!" className="small text-muted">Privacy policy</a>
+                        <NavLink to="/Policy" className="small text-muted">Privacy policy</NavLink>
                       </form>
                     </div>
                   </div>
@@ -194,15 +187,6 @@ const Login = () => {
           </div>
         </div>
       </section>
-
-
-
-
-
-
-
-
-
 
 
     </Layout>

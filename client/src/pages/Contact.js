@@ -8,7 +8,12 @@ const Contact = () => {
     
       <div className="contact-container">
         {/* Half page with a big image */}
-        <div className="contact-image"></div>
+
+        <div className="contact-image">
+        <img src="https://images.unsplash.com/photo-1499159058454-75067059248a?auto=format&fit=crop&q=80&w=2071&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="" style={{height:"371px" ,width:"720px"}} />
+
+        </div>
 
         {/* Half page with contact information */}
         <div className="contact-info">
@@ -18,15 +23,15 @@ const Contact = () => {
           <div className="contact-items-container">
             <div className="contact-item">
               <i className="fas fa-envelope"></i>
-              <span>Email: example@example.com</span>
+              <span>Email: amar2115425@akgec.ac.in</span>
             </div>
             <div className="contact-item">
               <i className="fas fa-phone"></i>
-              <span>Phone: +1 123 456 7890</span>
+              <span>Phone: 8601082965</span>
             </div>
             <div className="contact-item">
               <i className="fas fa-headset"></i>
-              <span>Customer Care: +1 987 654 3210</span>
+              <span>Customer Care: 6393833856</span>
             </div>
           </div>
         </div>

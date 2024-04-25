@@ -4,12 +4,12 @@ const userSchema = new mongoose.Schema({
     name: {
       type: String,
       required: true,
-      trim: true,
+      trim: true,      //remove whitespaces
     },
     email: {
       type: String,
       required: true,
-      unique: true,
+      unique: true,     //one user can login with one emailId
     },
     password: {
       type: String,
@@ -31,9 +31,8 @@ const userSchema = new mongoose.Schema({
       type: Number,
       default: 0,
     },
-
   },
-  { timestamps: true }
+  { timestamps: true } //jab bhi naya user create hoga tab uska timestamp bhi create hoga
 );
 
 export default mongoose.model("users", userSchema);

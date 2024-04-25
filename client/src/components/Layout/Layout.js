@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-//import Footer2 from "./Footer2";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
 
@@ -16,10 +15,8 @@ const Layout = ({ children, title, description, keywords, author }) => {
           <meta name="author" content={author} />
           <title>{title}</title>
         </Helmet>
-
         <Header />
-   
-
+  
         <main style={{ minHeight: "80vh" }}>
           <Toaster />
           {/* It Will give Registration successful message  */}
