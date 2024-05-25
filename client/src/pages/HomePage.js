@@ -6,6 +6,7 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import {useCart} from "../context/cart";
 import toast from "react-hot-toast";
+
 const HomePage = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -33,6 +34,7 @@ const HomePage = () => {
     getAllCategory();
     getTotal();
   }, []);
+  
   //get products
   const getAllProducts = async () => {
     try {
@@ -118,6 +120,7 @@ const HomePage = () => {
               </Checkbox>
             ))}
           </div>
+
           {/* price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
@@ -175,6 +178,7 @@ const HomePage = () => {
               </div>
             ))}
           </div>
+
           {/* ---------------------------- */}
           <div className="m-2 p-3">
             {products && products.length < total && (

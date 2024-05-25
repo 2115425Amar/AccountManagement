@@ -100,8 +100,8 @@ const Header = () => {
                     <ul className="dropdown-menu">
                       <li>
                         <NavLink
-                          to={`/dashboard/${
-                            auth?.user?.role === 1 ? "admin" : "user"
+                          to={`/dashboard${
+                            auth?.user?.role === 1 ? "/admin" : ""
                           }`}
                           className="dropdown-item"
                         >
@@ -122,6 +122,7 @@ const Header = () => {
                 </>
               )}
               <li className="nav-item">
+              
               <Badge count={cart?.length} showZero>
                   <NavLink to="/cart" className="nav-link">
                     Cart
