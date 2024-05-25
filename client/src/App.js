@@ -18,12 +18,21 @@ import Users from "./pages/Admin/Users";
 import Orders from './pages/user/Orders';
 import Profile from "./pages/user/Profile";
 import Products from './pages/Admin/Products';
+import ProductDetails from './pages/ProductDetails';
+import Categories from './pages/Categories';
+import CategoryProduct from './pages/CategoryProduct';
+// import Search from './pages/search';
+//  import Search from './pages/Search.js';
 
 function App() {
   return (
     <>
     <Routes>
       <Route path='/' element={<HomePage/>}/>
+      <Route path='/product/:slug' element={<ProductDetails/>}/>
+      <Route path='categories' element={<Categories/>}/>
+      <Route path='category/:slug' element={<CategoryProduct/>}/>
+      {/* <Route path='/Search' element={<Search/>}/> */}
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/Policy' element={<Policy/>}/>
@@ -36,7 +45,7 @@ function App() {
       <Route path='/dashboard' element={<PrivateRoute/>}>
         <Route path="" element={<Dashboard/>}/>
         <Route path="user/orders" element={<Orders/>} />
-          <Route path="user/profile" element={<Profile />} />
+          {/* <Route path="user/profile" element={<Profile />} /> */}
       </Route> 
 
        {/* <Route path='/dashboard' element={<PrivateRoute/>}>

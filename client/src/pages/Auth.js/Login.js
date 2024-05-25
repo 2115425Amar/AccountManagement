@@ -6,6 +6,11 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import { NavLink} from "react-router-dom";
 import { CiFaceSmile } from "react-icons/ci";
+import Lottie from "lottie-react";
+ import ContactAnimation from "../../assets/JSON/contactus.json";
+
+// import ContactAnimation from "/contactus.json";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -110,7 +115,7 @@ const Login = () => {
               <div className="card" style={{ borderRadius: "1rem" }}>
                 <div className="row g-0">
                   <div className="col-md-6 col-lg-5 d-none d-md-block">
-                    <img
+                    {/* <img
                       //src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
                        src="https://images.pexels.com/photos/4464484/pexels-photo-4464484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                      // src="https://images.pexels.com/photos/6956800/pexels-photo-6956800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -118,7 +123,10 @@ const Login = () => {
                       alt="login form"
                       className="img-fluid"
                       style={{ borderRadius: "1rem 0 0 1rem" }}
-                    />
+                    /> */}
+
+
+                    <Lottie animationData={ContactAnimation} />
 
                   </div>
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">

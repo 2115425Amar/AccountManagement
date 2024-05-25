@@ -3,6 +3,8 @@ import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Lottie from "lottie-react";
+import ContactAnimation from "../../assets/JSON/register.json";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -256,11 +258,13 @@ const Register = () => {
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img
+                      {/* <img
                         src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                         className="img-fluid"
                         alt="Sample"
-                      />
+                      /> */}
+                      <Lottie animationData={ContactAnimation} />
+
                     </div>
                   </div>
                 </div>
