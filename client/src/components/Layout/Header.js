@@ -2,15 +2,8 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
-import SearchInput from "../Form/SearchInput";
-// import ContactAnimation from "../../assets/JSON/logo.json";
-import useCategory from "../../hooks/useCategory";
-import {useCart} from "../../context/cart";
-import {Badge} from "antd";
 const Header = () => {
   const [auth, setAuth] = useAuth();
-  const [cart] =useCart();
-  const categories = useCategory();
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -20,7 +13,7 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
   };
-  
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary ">
@@ -38,39 +31,11 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-            ScholarShopy
+              Account Management
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <SearchInput/>
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
-                  Home
-                </NavLink>
-              </li>
 
-
-
-              <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to={"/categories"}
-                  data-bs-toggle="dropdown"
-                >Categories
-                </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                  <Link className="dropdown-item" to={"/categories"}>
-                  All Categories
-                  </Link>
-                  </li>
-                  
-                  {categories?.map((c) => (
-                    <li><Link className="dropdown-item" to={`/category/${c.slug}`}>{c.name}</Link></li>
-                  ))}
-                </ul>
-              </li>
-
-              
+           
 
               {!auth?.user ? (
                 <>
@@ -121,14 +86,7 @@ const Header = () => {
                   </li>
                 </>
               )}
-              <li className="nav-item">
-              
-              <Badge count={cart?.length} showZero>
-                  <NavLink to="/cart" className="nav-link">
-                    Cart
-                  </NavLink>
-                </Badge>
-              </li>
+             
             </ul>
           </div>
         </div>
@@ -138,10 +96,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-//In summary, both Link and NavLink are used for navigation in React applications,
-//ut NavLink provides additional features for styling the active link.
-// The choice between them depends on your specific needs.
-// If you simply need a way to navigate between routes, Link may suffice. 
-//If you want to style the active link or have more advanced navigation needs, NavLink is a better choice.
